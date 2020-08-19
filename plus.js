@@ -167,12 +167,13 @@ client.on("guildMemberAdd", async member => {
 
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     
-     const sasad = member.guild.members.cache.get(invite);
-    const davetçi = client.users.cache.get(invite);
+    
+    const sasad = member.guild.members.get(invite.inviter.id);
+    const davetçi = client.users.get(invite.inviter.id);
 
-    db.add(`davet_${invite}_${member.guild.id}`, +1);
-    db.set(`bunudavet_${member.id}`, invite.id);
-    let sayı = await db.fetch(`davet_${invite}_${member.guild.id}`);
+    db.add(`davet_${invite.inviter.id}_${member.guild.id}`, +1);
+    db.set(`bunudavet_${member.id}`, invite.inviter.id);
+    let sayı = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
 
     let sayı2;
     if (!sayı) {
