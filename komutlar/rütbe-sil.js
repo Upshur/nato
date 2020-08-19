@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
   let veri = await db.fetch(`rol1_${message.guild.id}`);
   let veri2 = await db.fetch(`rol2_${message.guild.id}`);
   let e3 = await db.fetch(`roldavet2_${message.guild.id}`);
-  let rol = message.mentions.roles.cache.first();
+  let rol = message.mentions.roles.first();
   if (!rol) {
     const embed = new Discord.MessageEmbed()
       .setDescription(`Lütfen silinecek rütbenin rolünü etiketleyiniz!`)
@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
     const fsafas = new Discord.MessageEmbed()
       .setDescription(
         `Başarıyla rütbeler arasında **${
-          message.guild.roles.get(veri).name
+          message.guild.roles.cache.get(veri).name
         }** rolüne sahip rütbe silindi!`
       )
     .setColor("#0BF3B7")

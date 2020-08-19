@@ -21,7 +21,7 @@ exports.run = async (client, message, args) => {
     if (!sine) {
       const embed = new Discord.MessageEmbed()
         .setDescription(
-          `Lütfen bir rol etiketleyiniz!\nÖrnek: ${prefix}rütbe-ekle @R 5`
+          `Lütfen bir rol etiketleyiniz!\nÖrnek: ${prefix}rütbe-ekle @Rol 5`
         )
         .setColor("RED")
   .setAuthor(`Hatalı Giriş`, message.author.avatarURL)
@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
     if (!enis) {
       const embed = new Discord.MessageEmbed()
         .setDescription(
-          `Lütfen bir davet sayısı belirtiniz!\nÖrnek: ${prefix}rütbe-ekle @Qral 5`
+          `Lütfen bir davet sayısı belirtiniz!\nÖrnek: ${prefix}rütbe-ekle @Rol 5`
         )
         .setColor("RED")
   .setAuthor(`Hatalı Giriş`, message.author.avatarURL)
