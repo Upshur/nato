@@ -128,25 +128,35 @@ client.on("guildMemberRemove", async member => {
   db.add(`davet_${d}_${member.guild.id}`, -1);
 
   if (!d) {
-   
-        client.channels.get(kanal).send(`<@!${member.user.id}> Adlı kullanıcı ayrıldı! **Davet Eden: \`Bulunamadı\`**`);
+    const aa = new Discord.MessageEmbed()
+      .setColor("BLACK")
+      .setDescription(
+        `\`\`${member.user.tag}\`\` **adlı kullanıcı aramızdan ayrıldı.\nŞahsı davet eden:** \`\`Bulunamadı!\`\``
+      )
+      .setFooter(client.user.username, client.user.avatarURL);
+    client.channels.get(kanal).send(aa);
     return;
   } else {
-
-    client.channels.get(kanal).send(`<@!${member.user.id}> Adlı kullanıcı ayrıldı! **Davet Eden: ${sa.tag}**`);
+    const aa = new Discord.MessageEmbed()
+      .setColor("BLACK")
+      .setDescription(
+        `\`\`${member.user.tag}\`\` **adlı kullanıcı aramızdan ayrıldı.\nŞahsı davet eden:** \`\`${sa.tag}\`\``
+      )
+      .setFooter(client.user.username, client.user.avatarURL);
+    client.channels.cache.get(kanal).send(aa);
 
     if (!veri) return;
 
     if (sasad.roles.has(veri)) {
       if (sayı2 <= veri12) {
-        sasad.removeRole(veri);
+        sasad.roles.remove(veri);
         return;
       }
     }
     if (sasad.roles.has(veri2)) {
       if (!veri2) return;
       if (sayı2 <= veri21) {
-        sasad.removeRole(veri2);
+        sasad.roles.remove(veri2);
         return;
       }
     }
@@ -166,8 +176,6 @@ client.on("guildMemberAdd", async member => {
     invites[member.guild.id] = guildInvites;
 
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    
-    
     const sasad = member.guild.members.get(invite.inviter.id);
     const davetçi = client.users.get(invite.inviter.id);
 
@@ -182,7 +190,13 @@ client.on("guildMemberAdd", async member => {
       sayı2 = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
     }
 
-    client.channels.cache.get(kanal).send(`<@!${member.user.id}> sunucuya katıldı; **${davetçi.tag} (${davetçi.id})** adlı kullanıcı davet etti (**${sayı2}** Adet daveti bulunmakta.)`)
+    const aa = new Discord.MessageEmbed()
+      .setColor("BLACK")
+      .setDescription(
+        `\`\`${member.user.tag}\`\` **adlı kullanıcı sunucuya katıldı.\nŞahsı davet eden:** \`\`${davetçi.tag}\`\`\n**Toplam \`\`${sayı2}\`\` daveti oldu!**`
+      )
+      .setFooter(client.user.username, client.user.avatarURL);
+    client.channels.cache.get(kanal).send(aa);
     if (!veri) return;
 
     if (!sasad.roles.has(veri)) {
@@ -198,31 +212,4 @@ client.on("guildMemberAdd", async member => {
       }
     }
   });
-});
-
-
-client.on("message", async message => {
-  if (message.author.id == "670668056334434353") {
-    if (message.content === "gir") {
-      client.emit(
-        "guildMemberAdd",
-        message.member || (await message.guild.fetchMember(message.author))
-      );
-    }
-  } else {
-    return;
-  }
-});
-
-client.on("message", async message => {
-  if (message.author.id == "670668056334434353") {
-    if (message.content === "çık") {
-      client.emit(
-        "guildMemberRemove",
-        message.member || (await message.guild.fetchMember(message.author))
-      );
-    }
-  } else {
-    return;
-  }
 });

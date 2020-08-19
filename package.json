@@ -1,7 +1,7 @@
 {
   "name": "hello-express",
   "version": "0.0.1",
-  "description": "Kinsta V12 Boş Alt Yapı",
+  "description": "Kinsta V12 İnvite Manager Alt Yapı",
   "main": "plus.js",
   "scripts": {
     "start": "node plus.js"
