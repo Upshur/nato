@@ -12,7 +12,8 @@
     "ms": "^2.1.2",
     "fs": "^0.0.2",
     "superagent": "^6.0.0",
-    "snekfetch": "^4.0.4"
+    "snekfetch": "^4.0.4",
+    "quick.db": "^7.1.1"
   },
   "engines": {
     "node": "12.x"
