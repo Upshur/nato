@@ -167,12 +167,12 @@ client.on("guildMemberAdd", async member => {
 
     const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
     
-    const sasad = client.users.cache.get(invite.inviter.id)
-    const davetçi = client.users.get(invite.inviter);
+     const sasad = member.guild.members.cache.get(invite);
+    const davetçi = client.users.cache.get(invite);
 
-    db.add(`davet_${invite.inviter.id}_${member.guild.id}`, +1);
-    db.set(`bunudavet_${member.id}`, invite.inviter.id);
-    let sayı = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
+    db.add(`davet_${invite}_${member.guild.id}`, +1);
+    db.set(`bunudavet_${member.id}`, invite.id);
+    let sayı = await db.fetch(`davet_${invite}_${member.guild.id}`);
 
     let sayı2;
     if (!sayı) {
@@ -181,7 +181,7 @@ client.on("guildMemberAdd", async member => {
       sayı2 = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
     }
 
-    client.channels.get(kanal).send(`<@!${member.user.id}> sunucuya katıldı; **${davetçi.tag} (${davetçi.id})** adlı kullanıcı davet etti (**${sayı2}** Adet daveti bulunmakta.)`)
+    client.channels.cache.get(kanal).send(`<@!${member.user.id}> sunucuya katıldı; **${davetçi.tag} (${davetçi.id})** adlı kullanıcı davet etti (**${sayı2}** Adet daveti bulunmakta.)`)
     if (!veri) return;
 
     if (!sasad.roles.has(veri)) {
