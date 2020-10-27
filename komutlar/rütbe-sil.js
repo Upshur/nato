@@ -2,8 +2,8 @@ const Discord = require("discord.js"),
   db = require("quick.db");
 
 exports.run = async (client, message, args) => {
-  let veri = await db.fetch(`rol1_${message.guild.id}`);
-  let veri2 = await db.fetch(`rol2_${message.guild.id}`);
+  let lrowsveri = await db.fetch(`rol1_${message.guild.id}`);
+  let lrowsveri2 = await db.fetch(`rol2_${message.guild.id}`);
   let e3 = await db.fetch(`roldavet2_${message.guild.id}`);
   let rol = message.mentions.roles.first();
   if (!rol) {
@@ -17,38 +17,38 @@ exports.run = async (client, message, args) => {
     message.channel.send(embed);
     return;
   }
-  if (rol.id === veri) {
+  if (rol.id === lrowsveri2) {
     const fsafas = new Discord.MessageEmbed()
       .setDescription(
         `Başarıyla rütbeler arasında **${
-          message.guild.roles.cache.get(veri).name
+          message.guild.roles.cache.get(lrowsveri2).name
         }** rolüne sahip rütbe silindi!`
       )
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
 
     message.channel.send(fsafas);
 
-    if (!veri) {
+    if (!lrowsveri) {
       await db.delete(`rol1_${message.guild.id}`);
       await db.delete(`roldavet1_${message.guild.id}`);
     } else {
-      await db.set(`rol1_${message.guild.id}`, veri2);
+      await db.set(`rol1_${message.guild.id}`, lrowsveri2);
       await db.set(`roldavet1_${message.guild.id}`, e3);
       await db.delete(`rol2_${message.guild.id}`);
       await db.delete(`roldavet2_${message.guild.id}`);
       return;
     }
-  } else if (rol.id === veri2) {
+  } else if (rol.id === lrowsveri2) {
     const embed = new Discord.MessageEmbed()
       .setDescription(
         `Başarıyla rütbeler arasında **${
-          message.guild.roles.get(veri2).name
+          message.guild.roles.get(lrowsveri2).name
         }** rolüne sahip rütbe silindi!`
       )
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
@@ -61,7 +61,7 @@ exports.run = async (client, message, args) => {
   } else {
     const kinstas = new Discord.MessageEmbed()
       .setDescription(`Rütbeler arasında böyle bir rütbe bulamadım!`)
-      .setColor("RED")
+      .setColor("GREEN")
   .setAuthor(`Hatalı Giriş`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     

@@ -11,7 +11,7 @@ exports.run = async (bot, message, args, tools) => {
       `\`davet-kanal\`, \`davet-kanal-sıfırla\`, \`davet-ekle\`, \`davet-sıfırla\`, \`davet-sil\`, \`davet-stokla\`, \`davetlerim\`, \`davet-oluştur\``
     )
     .addField(`Rütbeler`, `\`rütbe-ekle\`, \`rütbe-sil\`, \`rütbe-liste\``)
-    .setColor("#0BF3B7")
+    .setColor("BLACK")
   .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
   message.channel.send(embed);
