@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 module.exports.run = async (bot, message, args) => {
-  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "PREFIX GİR";
+  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "!";
   if (!message.member.hasPermission("KICK_MEMBERS")) {
     const embed = new Discord.MessageEmbed()
       .setDescription("```Ne yazık ki bu komutu kullanmaya yetkin yok.```")
@@ -27,13 +27,13 @@ module.exports.run = async (bot, message, args) => {
     );
   }
   db.delete(`davetkanal_${message.guild.id}`)
-  const kinsta = new Discord.MessageEmbed()
+  const Lrows = new Discord.MessageEmbed()
     .setColor("#0BF3B7")
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
     .setDescription(`Davet kanalı başarıyla sıfırlandı!`);
-  message.channel.send(kinsta);
+  message.channel.send(Lrows);
 return
   
 };

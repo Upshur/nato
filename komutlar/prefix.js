@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
     return;
   }
   const emirhansarac = new Discord.MessageEmbed()
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
       .setDescription(`Prefix; \`${prefix}\` olarak ayarlandı!`)
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)

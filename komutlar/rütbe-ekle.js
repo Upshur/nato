@@ -2,7 +2,7 @@ const Discord = require("discord.js"),
   db = require("quick.db");
 
 exports.run = async (client, message, args) => {
-  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "PREFIX GİR";
+  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "!-";
   let veri = await db.fetch(`rol1_${message.guild.id}`);
   let veri2 = await db.fetch(`rol2_${message.guild.id}`);
   let veri12 = await db.fetch(`roldavet1_${message.guild.id}`)
@@ -48,7 +48,7 @@ exports.run = async (client, message, args) => {
       .setDescription(
         `Başarılı bir şekilde ${sine} rolü ${enis} davet karşılığında elde edilebilecek!`
       )
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
@@ -76,7 +76,7 @@ exports.run = async (client, message, args) => {
       return;
     }
     if (!enis) {
-      const emir = new Discord.MessageEmbed()
+      const Lrows = new Discord.MessageEmbed()
         .setDescription(
           `Lütfen bir davet sayısı belirtiniz!\nÖrnek: ${prefix}rütbe-ekle @Qral 5`
         )
@@ -85,14 +85,14 @@ exports.run = async (client, message, args) => {
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
 
-      message.channel.send(emir);
+      message.channel.send(Lrows);
       return;
     }
     const hayda = new Discord.MessageEmbed()
       .setDescription(
         `Başarılı bir şekilde ${sine} rolü ${enis} davet karşılığında elde edilebilecek!`
       )
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     

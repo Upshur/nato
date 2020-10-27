@@ -24,7 +24,7 @@ exports.run = async (client, message, args, tools) => {
     const embed = new Discord.MessageEmbed()
       .addField(`Davetlerin Sahibi`, `<@` + kişi.id + `>`, true)
       .addField(`Total Davet:`, sayı2, true)
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Davet İstatistik`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
@@ -34,7 +34,7 @@ exports.run = async (client, message, args, tools) => {
     const embed = new Discord.MessageEmbed()
       .addField(`Davetlerin Sahibi`, `<@` + kişi.id + `>`, true)
       .addField(`Total Davet:`, sayı2, true)
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Davet İstatistik`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()   
@@ -45,7 +45,7 @@ exports.run = async (client, message, args, tools) => {
     const embed = new Discord.MessageEmbed()
       .addField(`Davetlerin Sahibi`, `<@` + kişi.id + `>`, true)
       .addField(`Total Davet:`, sayı2, true)
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
       .setDescription(
         `${message.guild.roles.get(veri).name} rolü için son ${-sayı2 -
           -veri12} davet!`
@@ -58,21 +58,21 @@ exports.run = async (client, message, args, tools) => {
   }
   if (message.member.roles.has(veri)) {
     if (!veri2) {
-      const kinsta1 = new Discord.MessageEmbed()
+      const Lrows = new Discord.MessageEmbed()
         .addField(`Davetlerin Sahibi`, `<@` + kişi.id + `>`, true)
         .addField(`Total Davet:`, sayı2, true)
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Davet İstatistik`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()   
-      message.channel.send(kinsta1);
+      message.channel.send(Lrows);
       return;
     }
     if (veri2) {
       const kinsta = new Discord.MessageEmbed()
         .addField(`Davetlerin Sahibi`, `<@` + kişi.id + `>`, true)
         .addField(`Total Davet:`, sayı2, true)
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
         .setDescription(
           `${message.guild.roles.get(veri2).name} rolü için son ${-sayı2 -
             -veri21} davet!`

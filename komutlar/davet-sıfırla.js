@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
-const db = require("quick.db");//emirhansaraç
+const db = require("quick.db");
 module.exports.run = async (bot, message, args) => {
-  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "PREFİX GİR";
+  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "!";
   if (!message.member.hasPermission("KICK_MEMBERS")) {
     const embed = new Discord.MessageEmbed()
       .setDescription("```Ne yazık ki bu komutu kullanmaya yetkin yok.```")
@@ -9,11 +9,11 @@ module.exports.run = async (bot, message, args) => {
   .setAuthor(`Hatalı Giriş`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
-//emirhansaraç
+
     message.channel.send(embed);
     return;
   }
-//emirhansaraç
+
   let u = message.mentions.users.first();
   if (!u) {
     return message.channel.send(
@@ -24,17 +24,17 @@ module.exports.run = async (bot, message, args) => {
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
     );
-  }//emirhansaraç
+  }
 
-  const emirhansarac = new Discord.MessageEmbed()
-    .setColor("#0BF3B7")
+  const Lrows = new Discord.MessageEmbed()
+    .setColor("GREEN")
     .setDescription(
       `${u} Adlı şahsın davetlerinin sıfırlanmasını onaylıyor musunuz?`
     )
   .setAuthor(`Onaylama İsteği`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
-  message.channel.send(emirhansarac).then(async function(sentEmbed) {
+  message.channel.send(Lrows).then(async function(sentEmbed) {
     const emojiArray = ["✅"];
     const filter = (reaction, user) =>
       emojiArray.includes(reaction.emoji.name) && user.id === message.author.id;

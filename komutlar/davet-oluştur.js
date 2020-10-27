@@ -6,13 +6,13 @@ exports.run = async (bot, message, args) => {
       maxAge: args.age * 60,
       maxUses: args.uses
     });
-      const kinsta = new Discord.MessageEmbed()
+      const Lrows = new Discord.MessageEmbed()
     .setColor("#0BF3B7")
-        .setDescription(`Davet kodu oluşturuldu! (https://discord.gg/${invite.code})`)
+        .setDescription(`Davet kodu başarıyla oluşturuldu! (https://discord.gg/${invite.code})`)
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
-    return message.channel.send(kinsta).catch(e => {
+    return message.channel.send(Lrows).catch(e => {
 return
     });
   }

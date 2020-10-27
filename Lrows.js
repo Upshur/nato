@@ -13,8 +13,8 @@ client.on("ready", async () => {
     client.appInfo = await client.fetchApplication();
   }, 600);
 
-  client.user.setActivity(`Kinsta V12 Boş Alt Yapı`, { type: "WATHING" });
-  console.log("[BOT] Kullanıma Hazır!");
+  client.user.setActivity(`Lrowsxrd V12 Invite Manager`, { type: "LISTENING" });
+  console.log("Botunuz hazır hale getirildi [Lrows]");
 });
 
 const log = message => {

@@ -2,7 +2,7 @@ const Discord = require("discord.js"),
   db = require("quick.db");
 
 exports.run = async (client, message, args) => {
-  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "PREFIX GİR";
+  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "!";
   let veri = await db.fetch(`rol1_${message.guild.id}`);
   let veri12 = await db.fetch(`roldavet1_${message.guild.id}`);
   let veri21 = await db.fetch(`roldavet2_${message.guild.id}`);
@@ -18,32 +18,31 @@ exports.run = async (client, message, args) => {
 
     message.channel.send(embed);
   }
-  ///////////////////
   if (veri) {
     if (!veri2) {
-      const kkis = new Discord.MessageEmbed()
+      const Lrows = new Discord.MessageEmbed()
         .setDescription(
           `<@&${message.guild.roles.cache.get(veri).id}>: ${veri12} Davet!`
         )
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Rütbe Liste`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
 
-      message.channel.send(kkis);
+      message.channel.send(Lrows);
       return;
     } else {
-      const kinsta = new Discord.MessageEmbed()
+      const Lrows = new Discord.MessageEmbed()
         .setDescription(
           `<@&${message.guild.roles.cache.get(veri).id}>: **${veri12} Davet!**
           <@&${message.guild.roles.cache.get(veri).id}>: **${veri21} Davet!**`
         )
-    .setColor("#0BF3B7")
+    .setColor("GREEN")
   .setAuthor(`Rank`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
 
-      message.channel.send(kinsta);
+      message.channel.send(Lrows);
       return;
     }
   }

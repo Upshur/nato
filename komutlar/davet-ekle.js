@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const db = require("quick.db");
 module.exports.run = async (bot, message, args) => {
-  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "PREFİX GİR";
+  let prefix = (await db.fetch(`prefix_${message.guild.id}`)) || "!";
   if (!message.member.hasPermission("KICK_MEMBERS")) {
     const embed = new Discord.MessageEmbed()
       .setDescription("```Ne yazık ki bu komutu kullanmaya yetkin yok.```")
@@ -35,13 +35,13 @@ let m = args.slice(1).join(" ")
         .setColor("RED")
     );
   }
-  const emirhansarac = new Discord.MessageEmbed()
-    .setColor("#0BF3B7")
+  const Lrows = new Discord.MessageEmbed()
+    .setColor("GREEN")
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
     .setDescription(`${u} Adlı şahsa; ${m} davet eklendi!`);
-  message.channel.send(emirhansarac);
+  message.channel.send(Lrows);
 
   db.add(`davet_${message.author.id}_${message.guild.id}`, +m);
 };

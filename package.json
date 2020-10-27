@@ -1,10 +1,10 @@
 {
   "name": "hello-express",
   "version": "0.0.1",
-  "description": "Kinsta V12 İnvite Manager Alt Yapı",
-  "main": "plus.js",
+  "description": "Lrows V12 Invite Manager",
+  "main": "Lrows.js",
   "scripts": {
-    "start": "node plus.js"
+    "start": "node Lrows.js"
   },
   "dependencies": {
     "express": "^4.17.1",
