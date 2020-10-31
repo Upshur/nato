@@ -26,13 +26,13 @@ module.exports.run = async (bot, message, args) => {
         .setColor("RED")
     );
   }
-  const kinsta = new Discord.MessageEmbed()
+  const Lrows = new Discord.MessageEmbed()
     .setColor("#0BF3B7")
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
     .setDescription(`Davet kanalı; ${kanal} olarak ayarlandı!`);
-  message.channel.send(kinsta);
+  message.channel.send(Lrows);
 
   db.set(`davetkanal_${message.guild.id}`, kanal.id);
 };

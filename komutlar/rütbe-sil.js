@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
     return;
   }
   if (rol.id === lrowsveri2) {
-    const fsafas = new Discord.MessageEmbed()
+    const Lrows = new Discord.MessageEmbed()
       .setDescription(
         `Başarıyla rütbeler arasında **${
           message.guild.roles.cache.get(lrowsveri2).name
@@ -29,7 +29,7 @@ exports.run = async (client, message, args) => {
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
 
-    message.channel.send(fsafas);
+    message.channel.send(Lrows);
 
     if (!lrowsveri) {
       await db.delete(`rol1_${message.guild.id}`);
