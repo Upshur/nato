@@ -14,14 +14,14 @@ module.exports.run = async (client, message, args) => {
     message.channel.send(hayda);
     return;
   }
-  const emirhansarac = new Discord.MessageEmbed()
+  const lrows = new Discord.MessageEmbed()
     .setColor("GREEN")
       .setDescription(`Prefix; \`${prefix}\` olarak ayarlandı!`)
   .setAuthor(`Başarılı`, message.author.avatarURL)
     .setFooter(`${message.author.tag} Tarafından İstendi`, message.author.avatarURL)
   .setTimestamp()     
 
-    message.channel.send(emirhansarac);
+    message.channel.send(lrows);
   db.set(`prefix_${message.guild.id}`, prefix)
 };
 
